@@ -1,6 +1,6 @@
 import { EXPENSE_FORM, EXPENSE_DELETE, ENABLE_EDIT ,SUBMIT_EDIT,  } from "../actions";
 
-const expensesLocalStore = JSON.parse(localStorage.getItem('myExpenses'));
+const expensesLocalStore = JSON.parse(localStorage.getItem('myExpenses')) ? JSON.parse(localStorage.getItem('myExpenses')) : [];
 
 const INICIAL_STATE = {
   currencies: [],
@@ -81,7 +81,7 @@ const walletReducer = (state = INICIAL_STATE, action) => {
       priceTotal: total([{ ...action.payload },
         ...state.expenses.filter((elem) => elem.id !== action.id)]),
     };
-  default: return { ...state };
+  default: return { ...state, priceTotal: total(state.expenses) };
   }
 };
 

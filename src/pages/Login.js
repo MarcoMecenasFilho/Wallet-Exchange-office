@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import loginEmail from '../actions';
-import {Form, Button, FloatingLabel, Card, Alert} from 'react-bootstrap';
+import {Form, Button, FloatingLabel, Card } from 'react-bootstrap';
 import logo from '../images/logopink.gif'
 
 class Login extends React.Component {
@@ -16,6 +16,17 @@ class Login extends React.Component {
     this.validateEmail = this.validateEmail.bind(this);
     this.submitUser = this.submitUser.bind(this);
     this.newUser = this.newUser.bind(this);
+  }
+
+  componentDidMount() {
+    if(!localStorage.getItem('login')) {
+      localStorage.setItem('login', JSON.stringify({
+        email: 'admin@admin.com', 
+        password: 'lolzinho'}));
+    }
+    if(!localStorage.getItem('myExpenses')) {
+      localStorage.setItem('myExpenses', JSON.stringify([{}]))
+    }
   }
 
   handleChange({ target }) {
