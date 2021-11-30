@@ -81,7 +81,7 @@ const walletReducer = (state = INICIAL_STATE, action) => {
       priceTotal: total([{ ...action.payload },
         ...state.expenses.filter((elem) => elem.id !== action.id)]),
     };
-  default: return { ...state, priceTotal: total(state.expenses) };
+  default: return { ...state };
   }
 };
 
