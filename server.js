@@ -12,6 +12,8 @@ app.use('/',
   )
 )
 
+app.get('/*', (req, res) => res.send('Index Page'));
+
 app.listen(process.env.PORT || 3000, (err) => {
   if (err) { return console.log(err)}
   console.log('Esta funcionando')

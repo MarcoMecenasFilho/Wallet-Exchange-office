@@ -46,6 +46,7 @@ class NewUser extends React.Component {
     const MinNumberLetter = 6;
     return (
       <div className="div-login">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;"/>
         {<img src={logo}  alt="logo"/>}
         <Card>
         <Form onSubmit={ (e) => this.submitUser(e) } className="form">
