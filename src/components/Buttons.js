@@ -58,7 +58,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 Buttons.propTypes = {
   click: PropTypes.func.isRequired,
-  status: PropTypes.string.isRequired,
+  status: PropTypes.bool.isRequired,
   submitExpense: PropTypes.func.isRequired,
   currentExpenses: PropTypes.objectOf(PropTypes.array).isRequired,
   infos: PropTypes.objectOf(PropTypes.string).isRequired,

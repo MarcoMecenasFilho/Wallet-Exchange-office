@@ -106,7 +106,7 @@ Wallet.propTypes = {
   expenseWallet: PropTypes.func.isRequired,
   currenciesList: PropTypes.func.isRequired,
   listCurrencies: PropTypes.arrayOf(PropTypes.string).isRequired,
-  editStatus: PropTypes.string.isRequired,
+  editStatus: PropTypes.bool.isRequired,
 
 };
 
