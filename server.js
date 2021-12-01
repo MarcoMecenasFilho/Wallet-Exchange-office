@@ -12,7 +12,9 @@ app.use('/',
   )
 )
 
-app.get('/*', (req, res) => res.send('Index Page'));
+app.get('/page',function(req,res){
+  res.send("page");
+});
 
 app.listen(process.env.PORT || 3000, (err) => {
   if (err) { return console.log(err)}
