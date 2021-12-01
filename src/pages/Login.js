@@ -24,9 +24,6 @@ class Login extends React.Component {
         email: 'admin@admin.com', 
         password: 'lolzinho'}));
     }
-    if(!localStorage.getItem('myExpenses')) {
-      localStorage.setItem('myExpenses', JSON.stringify([{}]))
-    }
   }
 
   handleChange({ target }) {
