@@ -1,16 +1,15 @@
 const  express = require('express')
-const { resolve } = require('path')
+const  path  = require('path');
 
 const app =  express()
 
-app.use('/',
-  express.static(
-  resolve(
-    __dirname,
-    './build'
-    )
-  )
-)
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("/*", function(req, res) {
+      res.sendFile(path.join(__dirname, "./build/index.html"));
+    });
+}
+
 
 app.get('/page',function(req,res){
   res.send("page");
