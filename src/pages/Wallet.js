@@ -20,6 +20,7 @@ class Wallet extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.backGroundForm = this.backGroundForm.bind(this);
   }
 
   componentDidMount() {
@@ -39,13 +40,22 @@ class Wallet extends React.Component {
     this.setState({ [name]: value });
   }
 
+  backGroundForm() {
+    const {editStatus}  = this.props;
+    if(editStatus) {
+      return 'edit-background'
+    } else {
+      return 'addexpense-background'
+    }
+  }
+
   render() {
     const { value, description, currency, method, tag } = this.state;
     const { listCurrencies, editStatus, history } = this.props;
     return (
-      <div className="form-wallet">
+      <div >
         <Header history={history}/>
-        <Form >
+        <Form className={this.backGroundForm()} >
           <Stack direction="horizontal" gap={4}  >
             <FloatingLabel controlId="floatingSelect" label="Descrição">
               <Form.Control
@@ -88,6 +98,9 @@ class Wallet extends React.Component {
           </Stack>
         </Form>
         <TableWallet/>
+        <footer>
+          <p>Caso esteja utilizando smartphone. Coloca-lo na horizontal.</p>
+        </footer>
       </div>
     );
   }
