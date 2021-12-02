@@ -89,6 +89,10 @@ header p {
   height: 100%;
 }
 
+.btn-header-newuser{
+  margin-left: 10px;
+}
+
 .table-wallet {
   width: 99%;
   margin-left: 0.5%;

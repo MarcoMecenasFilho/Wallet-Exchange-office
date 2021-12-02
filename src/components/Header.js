@@ -13,7 +13,23 @@ const toFixedNumber = (num) => {
 class Header extends Component {
   constructor() {
     super()
+    this.state = {
+      email: '',
+    }
     this.login = this.login.bind(this);
+  }
+
+  componentDidMount() {
+    if(!localStorage.getItem('login')) {
+      localStorage.setItem('login', JSON.stringify({
+        email: 'ERRO, CRIAR USUÁRIO NOVAMENTE'}));
+        const emailLocalStore = (JSON.parse(localStorage.getItem('login'))).email;
+        this.setState({email: emailLocalStore})
+    }
+    if(localStorage.getItem('login')) {
+        const emailLocalStore = (JSON.parse(localStorage.getItem('login'))).email;
+        this.setState({email: emailLocalStore})
+    }
   }
 
   login() {
@@ -22,7 +38,7 @@ class Header extends Component {
   }
 
   render() {
-    const email = (JSON.parse(localStorage.getItem('login'))).email;
+    const { email } = this.state;
     const { totalPrice = 0 } = this.props;
     const total = toFixedNumber(totalPrice);
 
@@ -35,7 +51,17 @@ class Header extends Component {
             <p  data-testid="header-currency-field"> BRL</p>
           </div>
           <p  id="user-header" data-testid="email-field">Usuário: {email}</p>
-          <Button variant="dark" type="button" onClick={this.login}>Login</Button>
+          <div>
+            <Button variant="dark" type="button" onClick={this.login}>Login</Button>
+            <Button
+                variant="warning"
+                type="button"
+                onClick={this.newUser}
+                className="btn-header-newuser"
+              >
+              Novo Usuário
+              </Button>
+          </div>
         </div>
       </header>
     );

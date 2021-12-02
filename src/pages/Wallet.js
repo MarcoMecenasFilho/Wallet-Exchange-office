@@ -26,6 +26,9 @@ class Wallet extends React.Component {
   componentDidMount() {
     const { currenciesList } = this.props;
     currenciesList();
+    if(!localStorage.getItem('myExpenses')) {
+      localStorage.setItem('myExpenses', JSON.stringify([]));   
+    }
   }
 
   submitForm() {
