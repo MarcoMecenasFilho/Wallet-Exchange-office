@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-import icone from '../images/iconeHeaderdark.png';
+import icone from '../images/logopink.gif';
 
 const toFixedNumber = (num) => {
   const numberFixed = num.toFixed(2);
@@ -43,26 +43,29 @@ class Header extends Component {
     const total = toFixedNumber(totalPrice);
 
     return (
-      <header>
-        <div className="header-elements">
+      <header className="header-wallet">
           <img src={icone} alt="logo"></img>
-          <div className="total-price">
-            <p  data-testid="total-field">Valor total: R${ total } </p>
-            <p  data-testid="header-currency-field"> BRL</p>
-          </div>
-          <p  id="user-header" data-testid="email-field">Usuário: {email}</p>
-          <div>
-            <Button variant="dark" type="button" onClick={this.login}>Login</Button>
-            <Button
-                variant="warning"
-                type="button"
-                onClick={this.newUser}
-                className="btn-header-newuser"
-              >
-              Novo Usuário
-              </Button>
-          </div>
-        </div>
+          <div className="infos-header">
+          <div className="btns-header">
+                <Button variant="dark" type="button" onClick={this.login}>Login</Button>
+                <Button
+                  variant="warning"
+                  type="button"
+                  onClick={this.newUser}
+                  className="btn-header-newuser"
+                >
+                  Novo Usuário
+                </Button>
+              </div>
+              <div className="text-infos">
+                <p  id="user-header" data-testid="email-field">Usuário: {email}</p>
+                <div className="totalprice-div">
+                  <p  data-testid="total-field">Valor total: R${ total } </p>
+                  <p  data-testid="header-currency-field"> BRL</p>
+                </div>
+              </div>
+              
+            </div>
       </header>
     );
   }

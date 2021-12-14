@@ -101,9 +101,6 @@ class Wallet extends React.Component {
           </Stack>
         </Form>
         <TableWallet/>
-        <footer>
-          <p>Caso esteja utilizando smartphone. Coloca-lo na horizontal.</p>
-        </footer>
       </div>
     );
   }

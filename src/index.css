@@ -45,52 +45,55 @@ padding: 3%;
 }
 
 .addexpense-background{
-  background-color: darkgrey;
+  background-color: rgb(225, 35, 152);
 }
 
-header {
-  background-color: #E12398;
-  height: 100px;
-  width: 100%;
+.header-wallet {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
-.total-price { 
-  display: flex;
-  padding: 15px;
-  height: 60px;
-  border-radius: 10px;
-
-}
-#user-header {
-  padding: 15px;
-  height: 60px;
-  border-radius: 10px;
-}
-
-header p {
-  height: 30px;
-  margin: 0;
-  color: black;
+.header-wallet p {
   font-weight: bolder;
+  margin: 0;
 }
 
-.header-elements {
+.infos-header {
   display: flex;
-  width: 100%;
-  height: 60px;
+  justify-content: center;
   justify-content: space-around;
+  border-bottom: 1px black groove;
+  background-color: black;
+}
+
+.user-header{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.text-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  margin: 20px;
+
+}
+
+.btns-header {
+  display: flex;
   align-items: center;
-  
 }
 
-.header-elements img {
-  height: 100%;
+.btns-header  button {
+  margin-right: 10px;
 }
 
-.btn-header-newuser{
-  margin-left: 10px;
+.totalprice-div {
+  display: flex;
+  justify-content: center;
 }
 
 .table-wallet {
@@ -104,15 +107,26 @@ header p {
   margin-bottom: 5px;
 }
 
-footer {
-  background-color: rgb(240, 240, 240);
-  text-align: center;
-  color: black;
-  position:absolute;
-  bottom:0;
-  width:100%;
+@media screen and (max-width: 780px){
+.infos-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-footer p {
-  margin: 0;
+.btns-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.text-infos {
+  margin-bottom: 20px;
+}
+
+.hstack.gap-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 }
