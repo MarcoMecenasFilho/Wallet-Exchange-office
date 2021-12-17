@@ -26,10 +26,12 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 - [Redux](https://redux.js.org/)
 - [React-BootStrap](https://react-bootstrap.github.io/)
 - [Node.js](https://nodejs.org/en/)
+- [RTL](https://testing-library.com/docs/react-testing-library/intro/)
+- [Jest](https://jestjs.io/pt-BR/)
 
 <h2>Testar o projeto</h2>
+<h4>Clique na imagem abaixo</h4>
 <br>
-
 <div align="center">
 <a  href="https://wallet-exchange-office.herokuapp.com/" target="_blank"><img width="40%" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" /></a> 
 </div>
@@ -73,8 +75,14 @@ $ npm run dev
 
 ### Rodando os testes
 ```bash
-# Para rodar os testes, use o comando
-$ npm run test
+# Para rodar os testes, da página de login, use o comando
+$ npm test ./tests/login.test.js
+
+# Para rodar os testes, da página de novo usuário, use o comando
+$ npm test ./tests/newuser.test.js
+
+# Para rodar os testes, da página da carteira, use o comando
+$ npm test ./tests/wallet.test.js
 
 ```
 
