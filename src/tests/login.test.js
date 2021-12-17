@@ -11,17 +11,11 @@ const VALID_EMAIL = 'alguem@email.com';
 const VALID_PASSWORD = '123456';
 const INVALID_EMAIL_0 = 'email';
 const INVALID_EMAIL_1 = 'email@com@';
-const INVALID_EMAIL_2 = 'emailcom@';
 const INVALID_EMAIL_3 = 'alguem@email.';
 const INVALID_PASSWORD = '23456';
 
-afterEach(() => jest.clearAllMocks());
 
-describe('1 - Crie uma página inicial de login com os seguintes campos e características:', () => {
-  test('A rota para esta página deve ser \'/\'', () => {
-    const { history } = renderWithRouterAndStore(<App />);
-    expect(history.location.pathname).toBe('/');
-  });
+describe('Crie uma página inicial de login com os seguintes campos e características:', () => {
 
   test('Crie um local para que o usuário insira seu email e senha', () => {
     renderWithRouterAndStore(<App />, '/');
@@ -32,70 +26,64 @@ describe('1 - Crie uma página inicial de login com os seguintes campos e caract
     expect(senha).toBeInTheDocument();
   });
 
-  test('Crie um botão com o texto \'Entrar\'', () => {
+  test('Crie dois botôes com data-testid "login-btn" e "newuser-btn"', () => {
     renderWithRouterAndStore(<App />, '/');
 
-    const button = screen.getByText(/Entrar/i);
-    expect(button).toBeInTheDocument();
+    const buttonLogin = screen.getByTestId('login-btn');
+    const buttonNewUser = screen.getByTestId('newuser-btn');
+    expect(buttonLogin).toBeInTheDocument();
+    expect(buttonNewUser).toBeInTheDocument();
   });
 
   test('Realize as seguintes verificações nos campos de email, senha e botão:', () => {
     renderWithRouterAndStore(<App />);
 
-    const button = screen.getByText(/Entrar/i);
-    expect(button).toBeDisabled();
+    const buttonLogin = screen.getByTestId('login-btn');
+    expect(buttonLogin).toBeDisabled();
 
     const email = screen.getByTestId(EMAIL_INPUT_TEST_ID);
     const senha = screen.getByTestId(PASSWORD_INPUT_TEST_ID);
 
     userEvent.type(email, INVALID_EMAIL_0);
     userEvent.type(senha, VALID_PASSWORD);
-    expect(button).toBeDisabled();
+    expect(buttonLogin).toBeDisabled();
 
     userEvent.type(email, INVALID_EMAIL_1);
     userEvent.type(senha, VALID_PASSWORD);
-    expect(button).toBeDisabled();
+    expect(buttonLogin).toBeDisabled();
 
-    userEvent.type(email, INVALID_EMAIL_2);
-    userEvent.type(senha, VALID_PASSWORD);
-    expect(button).toBeDisabled();
-
-    userEvent.type(email, VALID_EMAIL);
-    userEvent.type(senha, INVALID_PASSWORD);
-    expect(button).toBeDisabled();
+    userEvent.type(email, INVALID_EMAIL_3);
+    userEvent.type(senha,INVALID_PASSWORD);
+    expect(buttonLogin).toBeDisabled();
 
     userEvent.type(email, INVALID_EMAIL_3);
     userEvent.type(senha, VALID_PASSWORD);
-    expect(button).toBeDisabled();
+    expect(buttonLogin).toBeDisabled();
 
     userEvent.type(email, VALID_EMAIL);
     userEvent.type(senha, VALID_PASSWORD);
-    expect(button).toBeEnabled();
+    expect(buttonLogin).toBeEnabled();
   });
 
-  test('Salve o email no estado da aplicação, com a chave email, assim que o usuário logar.', () => {
-    const { store } = renderWithRouterAndStore(<App />);
-    const email = screen.getByTestId(EMAIL_INPUT_TEST_ID);
-    const senha = screen.getByTestId(PASSWORD_INPUT_TEST_ID);
-    const button = screen.getByText(/Entrar/i);
-
-    userEvent.type(email, VALID_EMAIL);
-    userEvent.type(senha, VALID_PASSWORD);
-    fireEvent.click(button);
-
-    expect(store.getState().user.email).toBe(VALID_EMAIL);
-  });
 
   test('A rota deve ser mudada para \'/carteira\' após o clique no botão.', () => {
     const { history } = renderWithRouterAndStore(<App />);
     const email = screen.getByTestId(EMAIL_INPUT_TEST_ID);
     const senha = screen.getByTestId(PASSWORD_INPUT_TEST_ID);
-    const button = screen.getByText(/Entrar/i);
+    const buttonLogin = screen.getByTestId('login-btn');
 
-    userEvent.type(email, VALID_EMAIL);
-    userEvent.type(senha, VALID_PASSWORD);
-    fireEvent.click(button);
+    userEvent.type(email, "admin@admin.com");
+    userEvent.type(senha, "lolzinho");
+    fireEvent.click(buttonLogin);
 
     expect(history.location.pathname).toBe('/carteira');
+  });
+
+  test('A rota deve ser mudada para \'/newuser\' após o clique no botão.', () => {
+    const { history } = renderWithRouterAndStore(<App />);
+    const buttonLogin = screen.getByTestId('newuser-btn');
+    fireEvent.click(buttonLogin);
+
+    expect(history.location.pathname).toBe('/newuser');
   });
 });

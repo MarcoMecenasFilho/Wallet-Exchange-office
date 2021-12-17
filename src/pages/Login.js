@@ -106,12 +106,14 @@ class Login extends React.Component {
               disabled={
                 !(((this.validateEmail(email)) && (password.length >= MinNumberLetter)))
               }
+              data-testid="login-btn"
             >
             Entrar
             </Button>
             <Button
               variant="warning"
               type="button"
+              data-testid="newuser-btn"
               onClick={this.newUser}
             >
             Novo Usuário

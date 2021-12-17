@@ -20,7 +20,6 @@ const heads = [ 'Descrição',
   'Moeda de conversão',
   'Editar/Excluir'];
 
-  console.log(heads);
 class TableWallet extends Component {
   componentDidUpdate() {
     this.expensesLocalStorage();
