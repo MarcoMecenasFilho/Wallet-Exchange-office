@@ -28,6 +28,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 - [Node.js](https://nodejs.org/en/)
 - [RTL](https://testing-library.com/docs/react-testing-library/intro/)
 - [Jest](https://jestjs.io/pt-BR/)
+- [API-DE-MOEDAS](https://docs.awesomeapi.com.br/api-de-moedas)
 
 <h2>Testar o projeto</h2>
 <h4>Clique na imagem abaixo</h4>
