@@ -6,7 +6,7 @@
 </h4>
 <br>
 <h2>Sobre</h2>
-<p align="justify"> Wallet - Casa de Câmbio - É uma carteira digital desenvolvida para a organização de seus gastos em compras internacionais. Podendo Escolher a categoria, método de pagamento, descrição e moeda daquela dispesa. Sendo tudo convertido para Real/BRL e somado automáticamente.
+<p align="justify"> Wallet - Casa de Câmbio - É uma carteira digital desenvolvida para a organização de seus gastos em compras internacionais. Podendo Escolher a categoria, método de pagamento, descrição e moeda daquela despesa. Sendo tudo convertido para Real/BRL e somado automáticamente.
 E sendo possível a edição e exclusão de qualquer despesa. </p 
 
 ### Features
@@ -49,6 +49,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ```bash
 # Clone este repositório
+# Foi utilizado SSH
 $ git clone git@github.com:MarcoMecenasFilho/Wallet-Exchange-office.git
 
 # Acesse a pasta do projeto no seu terminal/cmd
